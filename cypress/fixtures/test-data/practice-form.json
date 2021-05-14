@@ -1,0 +1,26 @@
+[
+	{
+		"skip": false,
+		"missingField": "firstName"
+	},
+	{
+		"skip": false,
+		"missingField": "lastName"
+	},
+	{
+		"skip": true,
+		"missingField": "email"
+	},
+	{
+		"skip": false,
+		"missingField": "gender"
+	},
+	{
+		"skip": false,
+		"missingField": "mobile"
+	},
+	{
+		"skip": true,
+		"missingField": "address"
+	}
+]
