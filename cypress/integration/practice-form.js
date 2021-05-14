@@ -16,9 +16,10 @@ context('Practice form', () => {
 		testData.forEach(testCase => {
 
 			const missingField = testCase.missingField;
-			
 
 			it(`Must not be able to submit the form without populating the ${missingField} field`, () => {
+
+				cy.skipOn(testCase.skip);
 
 				cy.fixture('practice-form/default-values.json').then(formValues => {
 
