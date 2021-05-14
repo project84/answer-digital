@@ -12,16 +12,21 @@ export const form = {
 	firstName: '#firstName',
 	lastName: '#lastName',
 	email: '#userEmail',
-	genders: '[type="radio"]',
+	gender: '[type="radio"]',
 	mobile: '#userNumber',
 	dob: '#dateOfBirthInput',
 	subjects: '#subjectsContainer',
-	// TO DO: hobbies
+	hobbies: '[type="checkbox"]',
 	picture: '#uploadPicture',
 	address: '#currentAddress',
 	state: '#state',
 	city: '#city',
 	submit: '#submit'
+}
+
+/* Success modal */
+export const modal = {
+	content: '.modal-content'
 }
 
 /**
@@ -53,7 +58,7 @@ export function fill(formValues = defaultValues) {
 	selectGender(formValues.gender);
 	// TO DO: DOB 
 	selectSubjects(formValues.subjects);
-	//selectHobbies(formValues.hobbies);
+	selectHobbies(formValues.hobbies);
 	uploadPicture(formValues.picture);
 	selectLocation(formValues.state, formValues.city);
 
@@ -71,7 +76,7 @@ export function selectGender(gender) {
 	}
 
 	// Click is forced because the the label covers the radio input
-	cy.get(form.genders + `[value="${gender}"]`)
+	cy.get(form.gender + `[value="${gender}"]`)
 		.click({ force: true });
 
 }
@@ -88,6 +93,20 @@ export function selectSubjects(subjects = []) {
 			.type(subject)
 			.focused()
 			.tab();
+	});
+
+}
+
+/**
+ * Select specified hobbies
+ * @param {array} hobbies 
+ */
+export function selectHobbies(hobbies = []) {
+
+	hobbies.forEach(hobby => {
+		cy.contains(hobby)
+			.siblings(form.hobbies)
+			.click({ force: true });
 	});
 
 }
