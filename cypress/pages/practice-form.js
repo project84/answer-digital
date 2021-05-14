@@ -49,20 +49,13 @@ export function fill(formValues = defaultValues) {
 		});
 	});
 
-	// Select desired gender
+	// Fill non-text inputs
 	selectGender(formValues.gender);
-
 	// TO DO: DOB 
-
-	// Enter subject values
 	selectSubjects(formValues.subjects);
-
-	// TO DO: upload picture
-
-	// Choose state and city
+	//selectHobbies(formValues.hobbies);
+	uploadPicture(formValues.picture);
 	selectLocation(formValues.state, formValues.city);
-
-	
 
 }
 
@@ -99,7 +92,19 @@ export function selectSubjects(subjects = []) {
 
 }
 
-export function uploadPicture() {
+/**
+ * Uploads the specified picture
+ * @param {string} file path to file
+ */
+export function uploadPicture(file) {
+
+	if (!file) {
+		// Do not upload picture if none provided
+		return;
+	}
+
+	cy.get(form.picture)
+		.attachFile(file);
 
 }
 
