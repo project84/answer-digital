@@ -5,6 +5,6 @@
 	"gender": "Female",
 	"mobile": "0123456789",
 	"dob": "01/01/1990",
-	"picture": "fixtures/practice-form/user-picture.png",
+	"picture": "practice-form/user-picture.jpg",
 	"address": "123 Test Avenue"
 }
