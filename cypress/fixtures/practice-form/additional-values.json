@@ -1,0 +1,18 @@
+{
+	"email": "alice@testuser.com",
+	"dob": "1994/07/21",
+	"picture": "practice-form/user-picture.jpg",
+	"address": "123 Test Avenue",
+	"subjects": [
+		"Computer Science",
+		"Biology",
+		"Chemistry",
+		"Maths"
+	],
+	"hobbies": [
+		"Music",
+		"Sports"
+	],
+	"state": "Uttar Pradesh",
+	"city": "Merrut"
+}

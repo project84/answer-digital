@@ -1,0 +1,34 @@
+[
+	{
+		"type": "mandatoryField",
+		"label": "First name",
+		"missingField": "firstName"
+	},
+	{
+		"type": "mandatoryField",
+		"label": "Last name",
+		"missingField": "lastName"
+	},
+	{
+		"type": "mandatoryField",
+		"label": "Gender",
+		"missingField": "gender"
+	},
+	{
+		"type": "mandatoryField",
+		"label": "Mobile",
+		"missingField": "mobile"
+	},
+	{
+		"type": "invalidField",
+		"label": "Email",
+		"invalidField": "email",
+		"value": "invalid"
+	},
+	{
+		"type": "invalidField",
+		"label": "Mobile",
+		"invalidField": "mobile",
+		"value": "invalid"
+	}
+]
