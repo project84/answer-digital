@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 
 import * as table from '../pages/components/table';
+import * as datePicker from '../pages/components/date-picker';
 
 import defaultValues from '../fixtures/practice-form/default-values.json';
 import fieldTypes from '../fixtures/practice-form/field-types.json';
@@ -61,8 +62,7 @@ export function fill(formValues = defaultValues) {
 
 	// Fill DOB
 	if (formValues.dob) {
-		cy.get(form.dob)
-			.selectDate(formValues.dob);
+		datePicker.selectDate(form.dob, formValues.dob);
 	}
 
 	// Fill other non-text inputs
