@@ -17,9 +17,7 @@ context('Practice form', () => {
 
 			const missingField = testCase.missingField;
 
-			it(`Must not be able to submit the form without populating the ${missingField} field`, () => {
-
-				cy.skipOn(testCase.skip);
+			it(`Must not be able to submit the form without populating the ${testCase.label} field`, () => {
 
 				cy.fixture('practice-form/default-values.json').then(formValues => {
 
