@@ -1,18 +1,18 @@
 [
 	{
-		"skip": false,
+		"label": "First name",
 		"missingField": "firstName"
 	},
 	{
-		"skip": false,
+		"label": "Last name",
 		"missingField": "lastName"
 	},
 	{
-		"skip": false,
+		"label": "Gender",
 		"missingField": "gender"
 	},
 	{
-		"skip": false,
+		"label": "Mobile",
 		"missingField": "mobile"
 	}
 ]
