@@ -54,9 +54,14 @@ export function fill(formValues = defaultValues) {
 		});
 	});
 
-	// Fill non-text inputs
+	// Fill DOB
+	if (formValues.dob) {
+		cy.get(form.dob)
+			.selectDate(formValues.dob);
+	}
+
+	// Fill other non-text inputs
 	selectGender(formValues.gender);
-	// TO DO: DOB 
 	selectSubjects(formValues.subjects);
 	selectHobbies(formValues.hobbies);
 	uploadPicture(formValues.picture);
