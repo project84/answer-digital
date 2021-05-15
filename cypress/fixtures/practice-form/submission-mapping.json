@@ -1,0 +1,53 @@
+{
+	"direct": [
+		{
+			"selector": "email",
+			"label": "Student Email"
+		},
+		{
+			"selector": "gender",
+			"label": "Gender"
+		},
+		{
+			"selector": "mobile",
+			"label": "Mobile"
+		},
+		{
+			"selector": "address",
+			"label": "Address"
+		}
+	],
+	"concat": [
+		{
+			"selectors": [
+				"firstName",
+				"lastName"
+			],
+			"label": "Student Name",
+			"delimeter": " "
+		},
+		{
+			"selectors": [
+				"subjects"
+			],
+			"label": "Subjects",
+			"delimeter": ", "
+		},
+		{
+			"selectors": [
+				"state",
+				"city"
+			],
+			"label": "State and City",
+			"delimeter": " "
+		}
+	],
+	"list": [
+		{
+			"selector": "hobbies",
+			"label": "Hobbies"
+		}
+	],
+	"picture": "Picture",
+	"dob": "Date of Birth"
+}
