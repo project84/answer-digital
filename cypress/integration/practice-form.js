@@ -13,7 +13,9 @@ context('Practice form', () => {
 
 	context('Mandatory fields', () => {
 
-		testData.forEach(testCase => {
+		const testCases = testData.filter(testCase => testCase.type === 'mandatoryField');
+
+		testCases.forEach(testCase => {
 
 			const missingField = testCase.missingField;
 
@@ -25,7 +27,7 @@ context('Practice form', () => {
 					delete formValues[missingField];
 					practiceForm.fill(formValues);
 
-					// Attempt to submit the form and verify that the missing field is highlighted
+					// Attempt to submit the form
 					cy.get(practiceForm.submitButton)
 						.click();
 
@@ -37,6 +39,44 @@ context('Practice form', () => {
 					cy.get(practiceForm.form[missingField])
 						.then(formField => {
 							expect(formField[0].validity.valueMissing).to.be.true;
+						});
+
+				})
+
+			});
+
+		});
+
+	});
+
+	context('Invalid field entry', () => {
+
+		const testCases = testData.filter(testCase => testCase.type === 'invalidField');
+
+		testCases.forEach(testCase => {
+
+			const invalidField = testCase.invalidField;
+
+			it(`Must not be able to submit the form with an invalid value for the ${testCase.label} field`, () => {
+
+				cy.fixture('practice-form/default-values.json').then(formValues => {
+
+					// Add invalid field value to defaults, then fill form
+					formValues[invalidField] = testCase.value;
+					practiceForm.fill(formValues);
+
+					// Attempt to submit the form
+					cy.get(practiceForm.submitButton)
+						.click();
+
+					// Verify that the success form is not displayed
+					cy.get(practiceForm.modal)
+						.should('not.exist');
+
+					// Check that the form field indicates that it is invalid
+					cy.get(practiceForm.form[invalidField])
+						.then(formField => {
+							expect(formField[0].validity.patternMismatch).to.be.true;
 						});
 
 				})
