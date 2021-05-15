@@ -28,11 +28,11 @@ context('Practice form', () => {
 					practiceForm.fill(formValues);
 
 					// Attempt to submit the form and verify that the missing field is highlighted
-					cy.get(practiceForm.form.submit)
+					cy.get(practiceForm.submitButton)
 						.click();
 
 					// Verify that the success form is not displayed
-					cy.get(practiceForm.modal.content)
+					cy.get(practiceForm.modal)
 						.should('not.exist');
 
 					// Check that the form field indicates that it is required
@@ -42,6 +42,47 @@ context('Practice form', () => {
 						});
 
 				})
+
+			});
+
+		});
+
+	});
+
+	context('Successful submission', () => {
+
+		it('Must be able to submit the form with only the required values populated', () => {
+
+			cy.fixture('practice-form/default-values.json').then(formValues => {
+
+				// Fill the form with only the required values
+				practiceForm.fill(formValues);
+
+				// Submit the completed form and verify that the table contains the submitted values
+				cy.get(practiceForm.submitButton)
+					.click();
+				practiceForm.validateSubmission(formValues);
+
+			});
+
+		});
+
+		it('Must be able to submit the form with all values populated', () => {
+
+			cy.fixture('practice-form/default-values.json').then(defaultValues => {
+				cy.fixture('practice-form/additional-values.json').then(additionalValues => {
+
+					let formValues = Object.assign(additionalValues, defaultValues);
+
+					// Fill the form with all values
+					practiceForm.fill(formValues);
+
+					// Submit the completed form and verify that the table contains the submitted values
+					cy.get(practiceForm.submitButton)
+						.click();
+					practiceForm.validateSubmission(formValues);
+
+				});
 
 			});
 
