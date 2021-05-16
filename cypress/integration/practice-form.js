@@ -104,7 +104,7 @@ context('Practice form', () => {
 				// Verify that the success form is displayed with the correct title
 				cy.get(modal.content)
 					.should('be.visible')
-					.find(modal.header)
+					.find(modal.title)
 					.invoke('text')
 					.should('equal', 'Thanks for submitting the form');
 
@@ -132,7 +132,7 @@ context('Practice form', () => {
 					// Verify that the success form is displayed with the correct title
 					cy.get(modal.content)
 						.should('be.visible')
-						.find(modal.header)
+						.find(modal.title)
 						.invoke('text')
 						.should('equal', 'Thanks for submitting the form');
 
