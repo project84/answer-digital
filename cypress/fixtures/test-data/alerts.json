@@ -1,0 +1,16 @@
+[
+	{
+		"scenario": "Must see that the first alert is displayed immediately",
+		"button": "alertButton",
+		"delay": 0,
+		"event": "window:alert",
+		"alertText": "You clicked a button"
+	},
+	{
+		"scenario": "Must see that the second alert is displayed after a five second delay",
+		"button": "delayAlertButton",
+		"delay": 5000,
+		"event": "window:alert",
+		"alertText": "This alert appeared after 5 seconds"
+	}
+]
