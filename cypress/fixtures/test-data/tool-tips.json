@@ -1,0 +1,12 @@
+[
+	{
+		"label": "button",
+		"selector": "button",
+		"text": "You hovered over the Button"
+	},
+	{
+		"label": "text field",
+		"selector": "textField",
+		"text": "You hovered over the text field"
+	}
+]
