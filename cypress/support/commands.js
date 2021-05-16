@@ -23,3 +23,11 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('visitPage', (url, pageTitle) => {
+
+	cy.visit(url);
+	cy.get('.main-header')
+		.should('contain', pageTitle);
+
+});
