@@ -34,6 +34,7 @@ export const submitButton = '#submit';
 
 /* Success modal */
 export const modal = '.modal-content';
+export const modalHeader = '.modal-header';
 
 /**
  * Visit the practice form page and verify the page title
