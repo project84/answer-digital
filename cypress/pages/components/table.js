@@ -34,7 +34,7 @@ export function getTableRow(column, rowValue) {
 		.invoke('index')
 		.then(i => {
 			return i + 1;
-		})
+		});
 
 }
 
@@ -51,8 +51,8 @@ export function getCell(indexColumn, indexValue, targetColumn) {
 			getTableRow(iCol, indexValue).then(row => {
 			cy.get('@target').then(col => {
 				return cy.get(`${tableBody} > :nth-child(${row}) > :nth-child(${col})`);
-			})
-		})
+			});
+		});
 	});
 }
 

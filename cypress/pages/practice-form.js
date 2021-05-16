@@ -28,7 +28,7 @@ export const form = {
 	address: '#currentAddress',
 	state: '#state',
 	city: '#city'
-}
+};
 
 export const submitButton = '#submit';
 
@@ -41,7 +41,7 @@ export function fill(formValues = defaultValues) {
 	// Enter specified value for each text input
 	fieldTypes.text.forEach(field => {
 		cy.wrap(formValues[field]).then(value => {
-			if(value) {
+			if (value) {
 				cy.get(form[field])
 					.type(value);
 			}
@@ -53,11 +53,19 @@ export function fill(formValues = defaultValues) {
 		datePicker.selectDate(form.dob, formValues.dob);
 	}
 
+	// Fill gender
+	if (formValues.gender) {
+		selectGender(formValues.gender);
+	}
+
+	// Upload picture
+	if (formValues.picture) {
+		uploadPicture(formValues.picture);
+	}
+
 	// Fill other non-text inputs
-	selectGender(formValues.gender);
 	selectSubjects(formValues.subjects);
 	selectHobbies(formValues.hobbies);
-	uploadPicture(formValues.picture);
 	selectLocation(formValues.state, formValues.city);
 
 }
@@ -67,11 +75,6 @@ export function fill(formValues = defaultValues) {
  * @param {string} gender 
  */
 export function selectGender(gender) {
-
-	if (!gender) {
-		// Do not select gender if none provided
-		return;
-	}
 
 	// Click is forced because the the label covers the radio input
 	cy.get(form.gender + `[value="${gender}"]`)
@@ -118,11 +121,6 @@ export function selectHobbies(hobbies = []) {
  */
 export function uploadPicture(file) {
 
-	if (!file) {
-		// Do not upload picture if none provided
-		return;
-	}
-
 	cy.get(form.picture)
 		.attachFile(file);
 
@@ -156,7 +154,7 @@ export function selectLocation(state, city) {
 export function validateSubmission(expectedValues) {
 
 	let populatedFields = [];
-	let missingFields = []
+	let missingFields = [];
 
 	// Add directly mapped field values to array of expected values 
 	submissionMapping.direct.forEach(mapping => {
@@ -200,6 +198,7 @@ export function validateSubmission(expectedValues) {
 
 	});
 
+	// Add list type form fields
 	submissionMapping.list.forEach(mapping => {
 
 		let values = expectedValues[mapping.selector];

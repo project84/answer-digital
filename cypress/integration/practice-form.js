@@ -42,7 +42,7 @@ context('Practice form', () => {
 							expect(formField[0].validity.valueMissing).to.be.true;
 						});
 
-				})
+				});
 
 			});
 
@@ -80,7 +80,7 @@ context('Practice form', () => {
 							expect(formField[0].validity.patternMismatch).to.be.true;
 						});
 
-				})
+				});
 
 			});
 
