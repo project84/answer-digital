@@ -1,4 +1,5 @@
 import * as practiceForm from '../pages/practice-form';
+import * as modal from '../pages/components/modals';
 
 import testData from '../fixtures/test-data/practice-form.json';
 
@@ -32,7 +33,7 @@ context('Practice form', () => {
 						.click();
 
 					// Verify that the success form is not displayed
-					cy.get(practiceForm.modal)
+					cy.get(modal.content)
 						.should('not.exist');
 
 					// Check that the form field indicates that it is required
@@ -70,7 +71,7 @@ context('Practice form', () => {
 						.click();
 
 					// Verify that the success form is not displayed
-					cy.get(practiceForm.modal)
+					cy.get(modal.content)
 						.should('not.exist');
 
 					// Check that the form field indicates that it is invalid
@@ -101,10 +102,11 @@ context('Practice form', () => {
 					.click();
 
 				// Verify that the success form is displayed with the correct title
-				cy.get(practiceForm.modal)
+				cy.get(modal.content)
 					.should('be.visible')
-					.find(practiceForm.modalHeader)
-					.should('contain', 'Thanks for submitting the form');
+					.find(modal.title)
+					.invoke('text')
+					.should('equal', 'Thanks for submitting the form');
 
 				// Verify that the table contains the submitted values
 				practiceForm.validateSubmission(formValues);
@@ -128,10 +130,11 @@ context('Practice form', () => {
 						.click();
 					
 					// Verify that the success form is displayed with the correct title
-					cy.get(practiceForm.modal)
+					cy.get(modal.content)
 						.should('be.visible')
-						.find(practiceForm.modalHeader)
-						.should('contain', 'Thanks for submitting the form');
+						.find(modal.title)
+						.invoke('text')
+						.should('equal', 'Thanks for submitting the form');
 
 					// Verify that the table contains the submitted values
 					practiceForm.validateSubmission(formValues);
