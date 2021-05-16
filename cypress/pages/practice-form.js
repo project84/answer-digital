@@ -10,7 +10,6 @@ import submissionMapping from '../fixtures/practice-form/submission-mapping.json
 /* Page element selectors */
 /* Basic page attributes */
 export const url = 'automation-practice-form';
-export const pageHeader = '.main-header';
 export const pageTitle = 'Practice Form';
 
 /* Form elements */
@@ -35,15 +34,6 @@ export const submitButton = '#submit';
 /* Success modal */
 export const modal = '.modal-content';
 export const modalHeader = '.modal-header';
-
-/**
- * Visit the practice form page and verify the page title
- */
-export function visit() {
-	cy.visit(url);
-	cy.get(pageHeader)
-		.should('contain', pageTitle);
-}
 
 /**
  * Fill the practice form with default or supplied values

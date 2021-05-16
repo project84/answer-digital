@@ -7,7 +7,7 @@ context('Practice form', () => {
 	beforeEach(() => {
 
 		// Navigate to the practice form page
-		practiceForm.visit();
+		cy.visitPage(practiceForm.url, practiceForm.pageTitle);
 
 	});
 
