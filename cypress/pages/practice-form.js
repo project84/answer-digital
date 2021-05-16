@@ -171,6 +171,7 @@ export function validateSubmission(expectedValues) {
 	let populatedFields = [];
 	let missingFields = []
 
+	// Add directly mapped field values to array of expected values 
 	submissionMapping.direct.forEach(mapping => {
 
 		if (expectedValues[mapping.selector]) {
@@ -245,18 +246,7 @@ export function validateSubmission(expectedValues) {
 		expValue: dayjs(expectedValues.dob).format('DD MMMM,YYYY')
 	});
 
-	// Verify each cell in the table with a value contains the expected value
-	populatedFields.forEach(mapping => {
-		table.getCell('Label', mapping.label, 'Values').then(cell => {
-			expect(cell).to.contain(mapping.expValue);
-		});
-	});
-
-	// Verify each cell without a value is empty
-	missingFields.forEach(field => {
-		table.getCell('Label', field, 'Values').then(cell => {
-			expect(cell).to.be.empty;
-		});
-	});
+	// Validate table content
+	table.validateTableContent('Label', 'Values', populatedFields, missingFields);
 
 }
