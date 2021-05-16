@@ -31,3 +31,16 @@ Cypress.Commands.add('visitPage', (url, pageTitle) => {
 		.should('contain', pageTitle);
 
 });
+
+Cypress.Commands.add('moveElement', (elementToMove, targetElement) => {
+
+	// Click and hold element
+	cy.get(elementToMove)
+		.trigger('mousedown', { which: 1 });
+
+	// Move mouse to target and release mouse click
+	cy.get(targetElement)
+		.trigger('mousemove')
+		.trigger('mouseup', { force: true });
+
+});
