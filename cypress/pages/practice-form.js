@@ -2,6 +2,7 @@ import dayjs from 'dayjs';
 
 import * as table from '../pages/components/table';
 import * as datePicker from '../pages/components/date-picker';
+import * as modal from '../pages/components/modals';
 
 import defaultValues from '../fixtures/practice-form/default-values.json';
 import fieldTypes from '../fixtures/practice-form/field-types.json';
@@ -30,10 +31,6 @@ export const form = {
 }
 
 export const submitButton = '#submit';
-
-/* Success modal */
-export const modal = '.modal-content';
-export const modalHeader = '.modal-header';
 
 /**
  * Fill the practice form with default or supplied values
