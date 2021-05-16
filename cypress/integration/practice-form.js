@@ -96,9 +96,17 @@ context('Practice form', () => {
 				// Fill the form with only the required values
 				practiceForm.fill(formValues);
 
-				// Submit the completed form and verify that the table contains the submitted values
+				// Submit the completed form
 				cy.get(practiceForm.submitButton)
 					.click();
+
+				// Verify that the success form is displayed with the correct title
+				cy.get(practiceForm.modal)
+					.should('be.visible')
+					.find(practiceForm.modalHeader)
+					.should('contain', 'Thanks for submitting the form');
+
+				// Verify that the table contains the submitted values
 				practiceForm.validateSubmission(formValues);
 
 			});
@@ -118,6 +126,14 @@ context('Practice form', () => {
 					// Submit the completed form and verify that the table contains the submitted values
 					cy.get(practiceForm.submitButton)
 						.click();
+					
+					// Verify that the success form is displayed with the correct title
+					cy.get(practiceForm.modal)
+						.should('be.visible')
+						.find(practiceForm.modalHeader)
+						.should('contain', 'Thanks for submitting the form');
+
+					// Verify that the table contains the submitted values
 					practiceForm.validateSubmission(formValues);
 
 				});

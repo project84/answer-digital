@@ -55,3 +55,21 @@ export function getCell(indexColumn, indexValue, targetColumn) {
 		})
 	});
 }
+
+export function validateTableContent(labelCol, valueCol, populatedFields =[], missingFields =[]) {
+
+	// Verify each cell in the table with a value contains the expected value
+	populatedFields.forEach(mapping => {
+		getCell(labelCol, mapping.label, valueCol).then(cell => {
+			expect(cell).to.contain(mapping.expValue);
+		});
+	});
+
+	// Verify each cell without a value is empty
+	missingFields.forEach(field => {
+		getCell(labelCol, field, valueCol).then(cell => {
+			expect(cell).to.be.empty;
+		});
+	});
+
+}
