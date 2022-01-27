@@ -1,8 +1,6 @@
-# Answer Digital technical assessment
+# Cypress - Demo QA
 
-Submitted by: Philip Rozycki-Burn
-
-A cypress based automation solution addressing the required scenarios for the Answer Digital techincal assessment.
+Cypress playground, automating some pages of demo QA site.
 
 ## Installation / running tests
 
